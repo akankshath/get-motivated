@@ -1,0 +1,100 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Quote Generator</title>
+    <style>
+        /* General Styling */
+        body { 
+            font-family: 'Arial', sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            height: 100vh; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb); 
+            animation: gradientBackground 10s ease infinite; 
+            background-size: 400% 400%; 
+            color: #333; 
+        }
+
+        @keyframes gradientBackground {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Quote Box Styling */
+        #quoteBox {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 30px 20px;
+            border-radius: 15px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            width: 80%;
+            max-width: 500px;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #4A4A4A;
+        }
+
+        #quote {
+            font-size: 1.3rem;
+            font-style: italic;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        /* Button Styling */
+        button {
+            background: #ff6f61;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 10px 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.2s, background 0.3s;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            background: #ff4a33;
+        }
+
+        button:active {
+            transform: scale(0.95);
+            box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div id="quoteBox">
+        <h1>Random Quote Generator</h1>
+        <p id="quote">Click the button for a new quote!</p>
+        <button onclick="generateQuote()">Get Quote</button>
+    </div>
+    <script>
+        const quotes = [
+            "Believe in yourself!",
+            "You are stronger than you think.",
+            "The only limit is your mind.",
+            "Success is a journey, not a destination.",
+            "Dream big, work hard.",
+            "We cannot solve problems with the kind of thinking we employed when we came up with them.",
+            "Learn as if you will live forever, live like you will die tomorrow."
+        ];
+        function generateQuote() {
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            document.getElementById('quote').innerText = quotes[randomIndex];
+        }
+    </script>
+</body>
+</html>
